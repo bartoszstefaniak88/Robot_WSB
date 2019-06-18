@@ -1,5 +1,5 @@
 #user container-based infrastructure
-sudo: false
+sudo: required
 before_install:
 # install dependencies
 install: "pip install -r requirements.txt"
@@ -7,9 +7,10 @@ language: python
 python:
   - "3.7"
 before_script:
+- CDVERSION=`curl http://chromedriver.storage.googleapis.com/LATEST_RELEASE`
+- echo $CDVERSION
 - wget http://chromedriver.storage.googleapis.com/75.0.3770.90/chromedriver_linux64.zip
-
-- unzip chromedriver_linux64.zip -d /home/travis/virtualenv/python3.7.1/bin/
-
-- export CHROME_BIN=chromium-browser
+- unzip chromedriver_linux64.zip
+- sudo chmod u+x chromedriver
+- sudo mv chromedriver /usr/bin/
 script: robot RedHat_Robot.robot
