@@ -9,7 +9,7 @@ python:
 before_script:
 - CDVERSION=`curl http://chromedriver.storage.googleapis.com/LATEST_RELEASE`
 - echo $CDVERSION
-- wget http://chromedriver.storage.googleapis.com/75.0.3770.90/chromedriver_linux64.zip
+- wget https://chromedriver.storage.googleapis.com/76.0.3809.25/chromedriver_linux64.zip
 - unzip chromedriver_linux64.zip
 - sudo chmod u+x chromedriver
 - sudo mv chromedriver /usr/bin/
