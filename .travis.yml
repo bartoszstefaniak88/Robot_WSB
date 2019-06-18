@@ -1,0 +1,9 @@
+#user container-based infrastructure
+sudo: false
+before_install:
+# install dependencies
+install: "pip install -r requirements.txt"
+language: python
+python:
+  - "3.7"
+script: pybot RedHat_Robot.robot
