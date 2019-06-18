@@ -1,16 +1,20 @@
 #user container-based infrastructure
 sudo: required
+addons:
+  apt:
+    sources:
+      - google-chrome
 before_install:
+  - CDVERSION=`curl http://chromedriver.storage.googleapis.com/LATEST_RELEASE`
+  - echo $CDVERSION
+  - wget --no-verbose https://chromedriver.storage.googleapis.com/76.0.3809.25/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip
+  - sudo chmod u+x chromedriver
+  - sudo mv chromedriver /usr/bin/
 # install dependencies
 install: "pip install -r requirements.txt"
 language: python
 python:
   - "3.7"
-before_script:
-- CDVERSION=`curl http://chromedriver.storage.googleapis.com/LATEST_RELEASE`
-- echo $CDVERSION
-- wget https://chromedriver.storage.googleapis.com/76.0.3809.25/chromedriver_linux64.zip
-- unzip chromedriver_linux64.zip
-- sudo chmod u+x chromedriver
-- sudo mv chromedriver /usr/bin/
+
 script: robot RedHat_Robot.robot
