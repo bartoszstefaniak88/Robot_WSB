@@ -7,7 +7,7 @@ before_install:
   - unzip chromedriver_linux64.zip
   - sleep 3
   - sudo cp chromedriver /usr/local/bin/
-  - sudo chmod u+x chromedriver
+  - sudo chmod a+x chromedriver
   - sleep 3
 # install dependencies
 install: "pip install -r requirements.txt"
