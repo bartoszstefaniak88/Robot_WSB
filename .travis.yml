@@ -8,6 +8,15 @@ before_install:
   - unzip chromedriver_linux64.zip
   - sudo chmod u+x chromedriver
   - sudo mv chromedriver /usr/bin/
+matrix:
+  include:
+    - python: "3.7"
+      env:
+        - BROWSER=headlesschrome
+        - SELENIUM=3.141.0
+        - ROBOTFRAMEWORK=3.1.2
+        - ROBOT_OPTIONS=--dotted
+        - INTERPRETER=python3
 # install dependencies
 install: "pip install -r requirements.txt"
 addons:
