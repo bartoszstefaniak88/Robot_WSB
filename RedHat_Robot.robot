@@ -7,7 +7,7 @@ Documentation    Test sklepu internetowego RedHat
 Library   SeleniumLibrary
 
 *** Variables ***
-${browser}    Firefox
+${browser}    Chrome
 ${user_email}   tester@test.pl
 ${user_password_incorrect}    12345
 ${user_password}    12345678
