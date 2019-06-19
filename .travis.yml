@@ -1,35 +1,17 @@
 #user container-based infrastructure
 os: linux
 sudo: required
+addons:
+  firefox: latest
 before_install:
-  - CDVERSION=`curl http://chromedriver.storage.googleapis.com/LATEST_RELEASE`
-  - echo $CDVERSION
-  - wget https://chromedriver.storage.googleapis.com/75.0.3770.90/chromedriver_linux64.zip
-  - unzip chromedriver_linux64.zip
-  - sudo chmod u+x chromedriver
-  - sudo mv chromedriver /usr/bin/
-matrix:
-  include:
-    - python: "3.7"
-      env:
-        - BROWSER=headlesschrome
-        - SELENIUM=3.141.0
-        - ROBOTFRAMEWORK=3.1.2
-        - ROBOT_OPTIONS=--dotted
-        - INTERPRETER=python3
+  - wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
+  - mkdir geckodriver
+  - tar -xzf geckodriver-v0.24.0-linux64.tar.gz -C geckodriver
+  - export PATH=$PATH:$PWD/geckodriver
 # install dependencies
 install: "pip install -r requirements.txt"
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
 language: python
 python:
   - "3.7"
 script:
- - whereis google-chrome-stable
- - whereis chromedriver
- - sleep 3
  - robot RedHat_Robot.robot
