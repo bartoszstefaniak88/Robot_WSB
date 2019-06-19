@@ -1,7 +1,8 @@
 #user container-based infrastructure
+os: linux
 sudo: required
 before_install:
-  - wget https://chromedriver.storage.googleapis.com/75.0.3770.90/chromedriver_linux64.zip
+  - wget https://chromedriver.storage.googleapis.com/75.0.3770.8/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
   - sleep 3
   - sudo chmod u+x chromedriver
