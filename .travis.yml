@@ -2,12 +2,12 @@
 os: linux
 sudo: required
 before_install:
+  - CDVERSION=`curl http://chromedriver.storage.googleapis.com/LATEST_RELEASE`
+  - echo $CDVERSION
   - wget https://chromedriver.storage.googleapis.com/75.0.3770.90/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
-  - sleep 3
   - sudo chmod u+x chromedriver
   - sudo mv chromedriver /usr/bin/
-  - sleep 3
 # install dependencies
 install: "pip install -r requirements.txt"
 addons:
@@ -19,7 +19,6 @@ addons:
 language: python
 python:
   - "3.7"
-
 script:
  - whereis google-chrome-stable
  - whereis chromedriver
