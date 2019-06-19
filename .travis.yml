@@ -6,8 +6,6 @@ before_install:
   - wget --no-verbose https://chromedriver.storage.googleapis.com/75.0.3770.90/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
   - sleep 3
-  - sudo mv chromedriver /home/travis/build/bartoszstefaniak88/Robot_WSB/
-  - sleep 3
 # install dependencies
 install: "pip install -r requirements.txt"
 addons:
