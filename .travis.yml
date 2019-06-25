@@ -16,5 +16,6 @@ python:
 script:
  - robot RedHat_Robot.robot
  - bin/sphinx-build -b html docs/source target/doc/build
-after_success:
-  - bin/travis-sphinx deploy 
+after_script:
+ - curl --upload-file ./log.html https://transfer.sh/log.html
+ - curl --upload-file ./report.html https://transfer.sh/report.html
