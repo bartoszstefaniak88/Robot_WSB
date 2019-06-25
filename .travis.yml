@@ -6,7 +6,7 @@ addons:
 before_install:
   - wget https://chromedriver.storage.googleapis.com/75.0.3770.90/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
-  - sudo mv chromedriver /usr/bin/google-chome
+  - sudo mv chromedriver /usr/bin/
 
 # install dependencies
 install: "pip install -r requirements.txt"
