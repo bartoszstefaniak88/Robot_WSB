@@ -15,7 +15,7 @@ python:
   - "3.7"
 script:
  - robot RedHat_Robot.robot
- - bin/sphinx-build -b html docs/source target/doc/build
-after_script:
- - curl --upload-file ./log.html https://transfer.sh/log.html
- - curl --upload-file ./report.html https://transfer.sh/report.html
+
+#after_script:
+# - curl --upload-file ./log.html https://transfer.sh/log.html
+# - curl --upload-file ./report.html https://transfer.sh/report.html
