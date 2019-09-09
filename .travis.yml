@@ -20,5 +20,7 @@ after_deploy:
   - curl "https://api.monkeytest.it/travis/test?secret=$MONKEY_KEY&on_load=true&on_click=true&page_weight=true&seo=true&broken_links=true&asset_count=true&url=https://autodemo.testoneo.com"
 
 after_script:
-- curl --upload-file ./log.html https://transfer.sh/123456/log.html
-- curl --upload-file ./report.html https://transfer.sh/123456/report.html
+- curl --upload-file ./log.html https://transfer.sh/log.html
+https://transfer.sh/66nb8/hello.log.html
+- curl --upload-file ./report.html https://transfer.sh/report.html
+https://transfer.sh/66nb8/report.html
