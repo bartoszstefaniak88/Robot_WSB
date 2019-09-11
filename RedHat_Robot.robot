@@ -1,13 +1,11 @@
 *** Settings ***
 Documentation    Test sklepu internetowego RedHat
-...
-...               This test has a workflow that is created using keywords in
-...               the imported resource file.
-#Resource          resource.txt
+
+
 Library   SeleniumLibrary
 
 *** Variables ***
-${browser}     headlesschrome
+${browser}     Chrome
 ${user_email}   tester@test.pl
 ${user_password_incorrect}    12345
 ${user_password}    12345678
@@ -24,22 +22,24 @@ ${xpath_price}      //*[@class="current-price"]/span
 ${login_name}        email
 ${password_name}      password
 ${button_sign_in_id}     submit-login
+
 *** Test Cases ***
 #sprawdzenie czy nagłówek ‘Log in to your account’ występuje na stronie logowania
 test_login_header
     Open browser and go to website
     Sleep   3
     Header_check
-    #Page screenshot
+    Page screenshot
     Sleep   1
     #Close browser
+
 #bledne logowanie
 test_incorrect_login
     Login_input
     Password_input_incorrect
     Button sign in click
     Sleep   1
-    #Page screenshot
+    Page screenshot
     Alert check
     #Close All Browsers
 
@@ -51,18 +51,20 @@ test_correct_login
     Sleep   1
     Button sign in click
     Sleep   1
-    #Page screenshot
+    Page screenshot
     Log in check
     #Close All Browsers
+
 #sprawdzenie czy produkt posiada poprawną nazwę HUMMINGBIRD PRINTED T-SHIRT
 test_name_product
     Go to product site
     Page screenshot
     Product name check
+
 #sprawdzenie czy produkt posiada aktualną cenę PLN23.52
 test_price_product
     Go to product site
-    #Page screenshot
+    Page screenshot
     Product price check
     Close All Browsers
 
